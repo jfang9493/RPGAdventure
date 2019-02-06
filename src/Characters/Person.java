@@ -1,18 +1,16 @@
 package Characters;
 
 public abstract class Person {
-    private int baseHP;
-    private int baseDef;
-    private int baseAtk;
+    private int baseHP, baseDef, baseAtk, map, xPos, yPos;
     private int HP = baseHP;
     private int def = baseDef;
     private int atk = baseAtk;
-    private int xPos, yPos;
 
-    public Person(int HP, int def, int atk, int x, int y){
+    public Person(int HP, int def, int atk, int map, int x, int y){
         this.baseHP = HP;
         this.baseDef = def;
         this.baseAtk = atk;
+        this.map = map;
         this.xPos = x;
         this.yPos = y;
     }
@@ -49,6 +47,10 @@ public abstract class Person {
         return def;
     }
 
+    public int getMap(){
+        return map;
+    }
+
     public void changeHP(int val){
         HP += val;
     }
@@ -63,5 +65,9 @@ public abstract class Person {
 
     public void changeDef(int val){
         def += val;
+    }
+
+    public void changeMap(int num){
+        map = num;
     }
 }
