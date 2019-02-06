@@ -1,6 +1,11 @@
 package Characters;
 
-public class Enemy implements Person {
+public class Enemy extends Person {
+
+    public Enemy(int HP, int def, int atk, int x, int y){
+        super(HP, def, atk, x, y);
+        
+    }
 
     @Override
     public int getBaseHealth() {
@@ -10,11 +15,6 @@ public class Enemy implements Person {
     @Override
     public int getBaseDefense() {
         return 50;
-    }
-
-    @Override
-    public int getBaseMagic() {
-        return 10;
     }
 
     @Override

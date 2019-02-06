@@ -1,15 +1,21 @@
 package Characters;
 
-public class Person {
+public abstract class Person {
     private int baseHP;
     private int baseDef;
-    private int baseMP;
     private int baseAtk;
     private int HP = baseHP;
-    private int MP = baseMP;
     private int def = baseDef;
     private int atk = baseAtk;
-    private int Xloc, Yloc;
+    private int xPos, yPos;
+
+    public Person(int HP, int def, int atk, int x, int y){
+        this.baseHP = HP;
+        this.baseDef = def;
+        this.baseAtk = atk;
+        this.xPos = x;
+        this.yPos = y;
+    }
 
     public int getBaseHealth() {
         return baseHP;
@@ -19,9 +25,9 @@ public class Person {
         return baseDef;
     }
 
-    public int getBaseMagic() {
+    /*public int getBaseMagic() {
         return baseMP;
-    }
+    }*/
 
     public int getBaseAttack() {
         return baseAtk;
@@ -31,9 +37,9 @@ public class Person {
         return HP;
     }
 
-    public int getMP() {
+    /*public int getMP() {
         return MP;
-    }
+    }*/
 
     public int getAtk(){
         return atk;
@@ -47,9 +53,9 @@ public class Person {
         HP += val;
     }
 
-    public void changeMP(int val){
+    /*public void changeMP(int val){
         MP += val;
-    }
+    }*/
 
     public void changeAtk(int val){
         atk += val;
