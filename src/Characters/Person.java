@@ -47,6 +47,14 @@ public abstract class Person {
         return def;
     }
 
+    public int getxPos(){
+        return xPos;
+    }
+
+    public int getyPos(){
+        return yPos;
+    }
+
     public int getMap(){
         return map;
     }
@@ -65,6 +73,11 @@ public abstract class Person {
 
     public void changeDef(int val){
         def += val;
+    }
+
+    public void changePos(int x, int y){
+        xPos += x;
+        yPos += y;
     }
 
     public void changeMap(int num){
