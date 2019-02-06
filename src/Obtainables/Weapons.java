@@ -8,9 +8,9 @@ public class Weapons extends Items {
             "B.O.R.K"};//Drop Rate:1%          Set Dmg:300
     public int giveAttack(String name)
     {
-        int prob1= (int)(Math.random()*4)+1;
+        int prob1= (int)(Math.random()*100)+1;
         System.out.println(prob1);
-        if(prob1==1 || prob1==2 || prob1==3)
+        if(prob1==1 )
         {
             return 150;
         }
@@ -19,8 +19,8 @@ public class Weapons extends Items {
         {
             return 200;
         }
-        prob1 = (int)(Math.random()*100)+1;
-        if(prob1==1)
+        prob1 = (int)(Math.random()*4)+1;
+        if(prob1==1 || prob1==2 || prob1==3)
         {
             return 300;
         }

@@ -1,33 +1,31 @@
 package Obtainables;
 
 public class Defense extends Items {
-    String[] giveMysticals = {
-            "SmolFire",//What the player is starts with   Cost: 10 Mana Dmg:10
-            "BiggerFire", //Drop Rate:25%                 Cost: 20 Mana Dmg:30
-            "Napalm",//Drop Rate:10%                      Cost: 50 Mana Dmg:50
-            "SuperNova"}; //Drop Rate:1%                  Cost: 75 Mana Dmg:100
+    String[] giveDefense = {
+            "Raggity Woodplank",//Starting Defense     Defense:75
+            "Adequate Armor",//Drop Rate:80%           Defense:85
+            "Knights Vow",//Drop Rate:50%              Defense 100
+            "Ultimate Mystical Shiny Armor"};//Drop Rate:1% Defense 125
 
-    //Acc... to brandon, Players already have spells so maybe no drop from monsters
-    public int mpDmg(String name) {
-        if(name.equalsIgnoreCase("SmolFire"))
+
+    public int giveDefense() {
+        int prob1 = (int)(Math.random()*100)+1;
+        if(prob1==1)
         {
-            return 10;
+            return 125;
         }
-        else if(name.equalsIgnoreCase("BiggerFire"))
-        {
-            return 30;
-        }
-        else if(name.equalsIgnoreCase("Napalm"))
-        {
-            return 50;
-        }
-        else if(name.equalsIgnoreCase("supernova"))
+        prob1 = (int)(Math.random()*2)+1;
+        if(prob1==1)
         {
             return 100;
         }
-        else{
-            return 0;
+        prob1= (int)(Math.random()*10)+1;
+        if(prob1!=1 && prob1!=2)
+        {
+            return 85;
         }
 
+        
+        return 0;
     }
 }
