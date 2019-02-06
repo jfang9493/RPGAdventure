@@ -13,8 +13,15 @@ public class Map implements mappicker
     }
 
     @Override
-    public String determineMap() {
-        return null;
+    public String determineMap()
+    {
+        Map img = new Map("bogboxx.png");
+        int[][] pixels = new int[w][h];
+
+        for( int i = 0; i < w; i++ )
+            for( int j = 0; j < h; j++ )
+                pixels[i][j] = img.getRGB( i, j );
+
     }
 
     @Override
