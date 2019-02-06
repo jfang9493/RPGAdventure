@@ -1,7 +1,10 @@
 package Characters;
 
-public class Boss  implements Person
-{
+public class Boss extends Person {
+    public Boss(int HP, int def, int atk, int map, int x, int y)
+    {
+        super(HP, def, atk, map, x, y);
+    }
 
     @Override
     public int getBaseHealth()
@@ -14,10 +17,10 @@ public class Boss  implements Person
         return 250;
     }
 
-    @Override
+    /** @Override
     public int getBaseMagic() {
         return 100;
-    }
+    } **/
 
     @Override
     public int getBaseAttack() {
