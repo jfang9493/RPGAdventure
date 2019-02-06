@@ -6,12 +6,12 @@ public class Boss  implements Person
     @Override
     public int getBaseHealth()
     {
-        return 500;
+        return 400;
     }
 
     @Override
     public int getBaseDefense() {
-        return 250;
+        return 80;
     }
 
     @Override
@@ -21,6 +21,6 @@ public class Boss  implements Person
 
     @Override
     public int getBaseAttack() {
-        return 100;
+        return 80;
     }
 }
