@@ -12,7 +12,7 @@ public class Weapons extends Items {
         System.out.println(prob1);
         if(prob1==1 )
         {
-            return 150;
+            return 300;
         }
         prob1 = (int)(Math.random()*10)+1;
         if(prob1==1 || prob1==2 || prob1==3)
@@ -22,7 +22,7 @@ public class Weapons extends Items {
         prob1 = (int)(Math.random()*4)+1;
         if(prob1==1 || prob1==2 || prob1==3)
         {
-            return 300;
+            return 150;
         }
         return 0;
     }

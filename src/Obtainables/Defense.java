@@ -25,7 +25,7 @@ public class Defense extends Items {
             return 85;
         }
 
-        
+
         return 0;
     }
 }
