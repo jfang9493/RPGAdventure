@@ -17,7 +17,6 @@ public class Map implements mappicker
     this.x =x;
     this.y = y;
     }
-    @Override
     public void determineMap()
     {
         BufferedImage img = null;
@@ -37,12 +36,16 @@ public class Map implements mappicker
     public boolean ifWalkable(int x, int y)
     {
         boolean ifBlack = false;
-        if(getPixel(x,y)==0)
+        boolean isYellow = false;
+        boolean isRed = false;
+
+        if()
         {
             ifBlack = true;
         }
+        if(getPixel(x, y)==)
         return ifBlack;
-    }
+    }.
     public int[][] createMap()
     {
         int[][] currentMap = new int[bufferedImage.getHeight()][bufferedImage.getWidth()];
@@ -55,19 +58,14 @@ public class Map implements mappicker
         }
         return currentMap;
     }
-    @Override
     public void show()
     {
 
     }
-
-    @Override
     public int getBasicPixel(int x, int y) {
         return 0;
     }
-
-    @Override
-    public void setBasicPixel(int x, int y, int value) {
-
+    public void setBasicPixel(int x, int y, int value)
+    {
     }
 }
