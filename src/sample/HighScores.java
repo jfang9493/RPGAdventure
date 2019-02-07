@@ -1,30 +1,37 @@
 package sample;
 
 import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class HighScores {
-    String csvFile = "/highscores.csv";
-    String delimiter = ",";
+    public static void CSVUtilities(){
+        String csvFile = "highscores.csv";
+        String line = "";
+        String cvsSplitBy = ",";
+        List<String> names = new ArrayList<String>();
+        List<Integer> scores = new ArrayList<Integer>();
 
-    BufferedReader br;
-     /** try {
-        br = new BufferedReader(new FileReader(CsvFile));
+        try (BufferedReader br = new BufferedReader(new FileReader(csvFile))) {
 
-        String line;
-        while ((line = br.readLine()) != null) {
-            String[] fields = line.split(FieldDelimiter, -1);
+            while ((line = br.readLine()) != null) {
 
-            Record record = new Record(fields[0], fields[1], fields[2],
-                    fields[3], fields[4], fields[5]);
-            dataList.add(record);
+                // use comma as separator
+                String[] line1 = line.split(cvsSplitBy);
+                names.add(line1[0]) ;
+                scores.add(Integer.parseInt(line1[1]));
+            }
 
+        } catch (IOException e) {
+            e.printStackTrace();
         }
 
-    } catch (FileNotFoundException ex) {
-        Logger.getLogger(JavaFXCSVTableView.class.getName())
-                .log(Level.SEVERE, null, ex);
-    } catch (IOException ex) {
-        Logger.getLogger(JavaFXCSVTableView.class.getName())
-                .log(Level.SEVERE, null, ex);
-    } **/
+        System.out.println(names);
+        System.out.println(scores);
+
+    }
+
+
 }
