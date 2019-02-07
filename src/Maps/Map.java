@@ -1,46 +1,76 @@
 package Maps;
 
+import javax.imageio.ImageIO;
+import java.awt.*;
+import java.awt.image.BufferedImage;
+import java.awt.image.DataBufferByte;
+import java.io.File;
+import java.io.IOException;
+
 public class Map implements mappicker
 {
     private mappicker map;
     private int x;
     private int y;
-    public Map(mappicker map, int x, int y)
+    private BufferedImage bufferedImage;
+    public Map(mappicker map, int x, int y) {
+    this.map = map;
+    this.x =x;
+    this.y = y;
+    }
+    @Override
+    public void determineMap()
     {
-        this.map = map;
-        this.x = x;
-        this.y = y;
-    }
+        BufferedImage img = null;
+        try
+        {
+            img  = ImageIO.read(new File("bigboxx.png"));
+        }
+        catch (IOException e)
+        {
+        }
 
-    @Override
-    public String determineMap()
+    }
+    public Image getImage()
     {
-        Map img = new Map("bogboxx.png");
-        int[][] pixels = new int[w][h];
-
-        for( int i = 0; i < w; i++ )
-            for( int j = 0; j < h; j++ )
-                pixels[i][j] = img.getRGB( i, j );
-
+        return bufferedImage;
     }
-
-    @Override
-    public int getWidth() {
-        return 0;
+    public int getPixel(int x, int y)
+    {
+        return bufferedImage.getRGB(x,y);
     }
-
-    @Override
-    public int getLength() {
-        return 0;
+    public boolean ifWalkable(int x, int y)
+    {
+        boolean ifBlack = false;
+        if(getPixel(x,y)==0)
+        {
+            ifBlack = true;
+        }
+        return ifBlack;
     }
-
+    public int[][] createMap()
+    {
+        int[][] currentMap = new int[bufferedImage.getHeight()][bufferedImage.getWidth()];
+        for(int i =0; i<bufferedImage.getWidth();i++)
+        {
+            for(int j = 0; j<bufferedImage.getHeight();j++)
+            {
+            }
+        }
+    }
     @Override
-    public void show() {
+    public void show()
+    {
 
     }
 
     @Override
     public int getBasicPixel(int x, int y) {
         return 0;
+    }
+
+    @Override
+    public void setBasicPixel(int x, int y, int value) {
+
     }
 }
