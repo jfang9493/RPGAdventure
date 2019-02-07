@@ -30,10 +30,6 @@ public class Map implements mappicker
         }
 
     }
-    public Image getImage()
-    {
-        return bufferedImage;
-    }
     public int getPixel(int x, int y)
     {
         return bufferedImage.getRGB(x,y);
@@ -54,8 +50,10 @@ public class Map implements mappicker
         {
             for(int j = 0; j<bufferedImage.getHeight();j++)
             {
+                currentMap[i][j] = getPixel(x,y);
             }
         }
+        return currentMap;
     }
     @Override
     public void show()
