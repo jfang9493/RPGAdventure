@@ -8,7 +8,7 @@ import java.util.List;
 
 public class HighScores {
     public static void CSVUtilities(){
-        String csvFile = "highscores.csv";
+        String csvFile = "src/highscores.csv";
         String line = "";
         String cvsSplitBy = ",";
         List<String> names = new ArrayList<String>();
