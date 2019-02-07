@@ -7,12 +7,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class HighScores {
+
+    private static List<String> names = new ArrayList<String>();
+    private static List<Integer> scores = new ArrayList<Integer>();
+
     public static void CSVUtilities(){
         String csvFile = "src/highscores.csv";
         String line = "";
         String cvsSplitBy = ",";
-        List<String> names = new ArrayList<String>();
-        List<Integer> scores = new ArrayList<Integer>();
 
         try (BufferedReader br = new BufferedReader(new FileReader(csvFile))) {
 
@@ -31,6 +33,12 @@ public class HighScores {
         System.out.println(names);
         System.out.println(scores);
 
+    }
+
+    public void printHighScoreList(){
+        for(int i = 0; i < names.size(); i++){
+            System.out.println(names.get(i) + "   " + scores.get(i) + "\n");
+        }
     }
 
 
