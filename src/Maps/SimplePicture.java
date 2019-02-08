@@ -516,16 +516,7 @@ public class SimplePicture implements DigitalPicture
 
         // create the file object
         File file = new File(fileName);
-        File fileLoc = file.getParentFile(); // directory name
-
-        // if there is no parent directory use the current media dir
-        if (fileLoc == null)
-        {
-            fileName = FileChooser.getMediaPath(fileName);
-            file = new File(fileName);
-            fileLoc = file.getParentFile();
-        }
-
+        File fileLoc = file.getParentFile(); // directory na
         // check that you can write to the directory
         if (!fileLoc.canWrite()) {
             throw new IOException(fileName +
@@ -561,21 +552,6 @@ public class SimplePicture implements DigitalPicture
 
     }
 
-    /**
-     * Method to get the directory for the media
-     * @param fileName the base file name to use
-     * @return the full path name by appending
-     * the file name to the media directory
-     */
-    public static String getMediaPath(String fileName) {
-        return FileChooser.getMediaPath(fileName);
-    }
-
-    /**
-     * Method to get the coordinates of the enclosing rectangle after this
-     * transformation is applied to the current picture
-     * @return the enclosing rectangle
-     */
     public Rectangle2D getTransformEnclosingRect(AffineTransform trans)
     {
         int width = getWidth();

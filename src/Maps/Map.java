@@ -31,7 +31,7 @@ public class Map extends SimplePicture {
     }
     public int getPixelValue()
     {
-        return
+        return getBasicPixel()
     }
     public void determineMap()
     {
@@ -53,12 +53,12 @@ public class Map extends SimplePicture {
     }
     public int[][] generateArray()
     {
-        int[][] mapArray = new int[bufferedImage.getWidth()][bufferedImage.getHeight()];
-        for(int i =0; i<bufferedImage.getHeight();i++)
+        Pixel[][] pixels = this.getPixels2D();
+        for (int i = 0; i< pixels.length;i++)
         {
-            for(int j= 0; j<bufferedImage.getWidth();j++)
+            for(int j =0; j<pixels[i].length;j++)
             {
-                mapArray[i][j] =
+                pixels[i][j] =
             }
         }
     }
