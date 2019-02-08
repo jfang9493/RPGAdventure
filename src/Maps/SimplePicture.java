@@ -1,4 +1,6 @@
 package Maps;
+import javafx.stage.FileChooser;
+
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import javax.swing.ImageIcon;
@@ -6,80 +8,21 @@ import java.awt.*;
 import java.io.*;
 import java.awt.geom.*;
 
-/**
- * A class that represents a simple picture.  A simple picture may have
- * an associated file name and a title.  A simple picture has pixels,
- * width, and height.  A simple picture uses a BufferedImage to
- * hold the pixels.  You can show a simple picture in a
- * PictureFrame (a JFrame).  You can also explore a simple picture.
- *
- * @author Barb Ericson ericson@cc.gatech.edu
- */
 public class SimplePicture implements DigitalPicture
 {
 
-    /////////////////////// Fields /////////////////////////
-
-    /**
-     * the file name associated with the simple picture
-     */
     private String fileName;
-
-    /**
-     * the title of the simple picture
-     */
     private String title;
-
-    /**
-     * buffered image to hold pixels for the simple picture
-     */
     private BufferedImage bufferedImage;
-
-    /**
-     * frame used to display the simple picture
-     */
     private PictureFrame pictureFrame;
-
-    /**
-     * extension for this file (jpg or bmp)
-     */
     private String extension;
-
-
-    /////////////////////// Constructors /////////////////////////
-
-    /**
-     * A Constructor that takes no arguments
-     * A no-argument constructor must be given in order for .  It creates a picture with
-     *   * a width of 200 and a height of 100 that is all white.a class to
-     * be able to be subclassed.  By default all subclasses will implicitly
-     * call this in their parent's no argument constructor unless a
-     * different call to super() is explicitly made as the first line
-     * of code in a constructor.
-     */
     public SimplePicture()
     {this(200,100);}
 
-    /**
-     * A Constructor that takes a file name and uses the file to create
-     * a picture
-     * @param fileName the file name to use in creating the picture
-     */
     public SimplePicture(String fileName)
     {
-
-        // load the picture into the buffered image
         load(fileName);
-
     }
-
-    /**
-     * A constructor that takes the width and height desired for a picture and
-     * creates a buffered image of that size.  This constructor doesn't
-     * show the picture.  The pixels will all be white.
-     * @param width the desired width
-     * @param height the desired height
-     */
     public  SimplePicture(int width, int height)
     {
         bufferedImage = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
@@ -88,25 +31,11 @@ public class SimplePicture implements DigitalPicture
         extension = "jpg";
         setAllPixelsToAColor(Color.white);
     }
-
-    /**
-     * A constructor that takes the width and height desired for a picture and
-     * creates a buffered image of that size.  It also takes the
-     * color to use for the background of the picture.
-     * @param width the desired width
-     * @param height the desired height
-     * @param theColor the background color for the picture
-     */
     public  SimplePicture(int width, int height, Color theColor)
     {
         this(width,height);
         setAllPixelsToAColor(theColor);
     }
-
-    /**
-     * A Constructor that takes a picture to copy information from
-     * @param copyPicture the picture to copy from
-     */
     public SimplePicture(SimplePicture copyPicture)
     {
         if (copyPicture.fileName != null)
@@ -123,11 +52,6 @@ public class SimplePicture implements DigitalPicture
             this.copyPicture(copyPicture);
         }
     }
-
-    /**
-     * A constructor that takes a buffered image
-     * @param image the buffered image
-     */
     public SimplePicture(BufferedImage image)
     {
         this.bufferedImage = image;
@@ -135,33 +59,18 @@ public class SimplePicture implements DigitalPicture
         fileName = "None";
         extension = "jpg";
     }
-
-    ////////////////////////// Methods //////////////////////////////////
-
-    /**
-     * Method to get the extension for this picture
-     * @return the extendsion (jpg, bmp, giff, etc)
-     */
     public String getExtension() { return extension; }
-
-
-    /**
-     * Method that will copy all of the passed source picture into
-     * the current picture object
-     * @param sourcePicture  the picture object to copy
-     */
     public void copyPicture(SimplePicture sourcePicture)
     {
         Pixel sourcePixel = null;
         Pixel targetPixel = null;
 
-        // loop through the columns
         for (int sourceX = 0, targetX = 0;
              sourceX < sourcePicture.getWidth() &&
                      targetX < this.getWidth();
              sourceX++, targetX++)
         {
-            // loop through the rows
+
             for (int sourceY = 0, targetY = 0;
                  sourceY < sourcePicture.getHeight() &&
                          targetY < this.getHeight();
