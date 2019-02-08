@@ -1,6 +1,7 @@
 package Obtainables;
 
 public class Health extends Items {
+
     String[] giveHealth = {
             "Band-Aid",//Drop Rate:75%    health: 10
             "Health Pot",//Drop Rate:50%   health: 20
@@ -8,6 +9,19 @@ public class Health extends Items {
             "Rainbow Health Drop"};//Drop Rate:1% Max health: +50 Health Recovery:50
 
     public int giveHealth() {
+
+    public Health(String name, String effect){
+        super(name, "Health", effect);
+    }
+    String[] giveHealth = {
+            "Band-Aid",//Drop Rate:75%    health: 10
+            "Health Pot",//Drop Rate:50%   health: 20
+            "Mom's Chicken Soup",//Drop Rate:30%   health: 30
+            "Rainbow Health Drop"};//Drop Rate:1% Max health: +50 Health Recovery:50
+
+    public int giveHealth() {
+
+
         int prob1 = (int)(Math.random()*100)+1;
         if(prob1==1)
         {

@@ -8,6 +8,7 @@ public class Mysticals extends Items {
             "SuperNova"}; //Drop Rate:1%                  Cost: 75 Mana Dmg:100
 
     //Acc.. To Brandon, Player already has the spells so probably no drop rate
+
     public int mpDmg(String name) {
         if(name.equalsIgnoreCase("SmolFire"))
         {
