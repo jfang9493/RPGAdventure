@@ -1,39 +1,90 @@
 package Maps;
+import java.awt.Color;
 
-import java.awt.*;
+/**
+ * Class that references a pixel in a picture. Pixel
+ * stands for picture element where picture is
+ * abbreviated pix.  A pixel has a column (x) and
+ * row (y) location in a picture.  A pixel knows how
+ * to get and set the red, green, blue, and alpha
+ * values in the picture.  A pixel also knows how to get
+ * and set the color using a Color object.
+ *
+ * @author Barb Ericson ericson@cc.gatech.edu
+ */
+public class Pixel
+{
 
-public class Pixel {
-    private mappicker map;
+    ////////////////////////// fields ///////////////////////////////////
+
+    /** the digital picture this pixel belongs to */
+    private DigitalPicture picture;
+
+    /** the x (column) location of this pixel in the picture; (0,0) is top left */
     private int x;
+
+    /** the y (row) location of this pixel in the picture; (0,0) is top left */
     private int y;
-    public Pixel(mappicker map, int x, int y)
+
+    ////////////////////// constructors /////////////////////////////////
+
+    /**
+     * A constructor that takes the x and y location for the pixel and
+     * the picture the pixel is coming from
+     * @param picture the picture that the pixel is in
+     * @param x the x location of the pixel in the picture
+     * @param y the y location of the pixel in the picture
+     */
+    public Pixel(DigitalPicture picture, int x, int y)
     {
-        this.map = map;
+        // set the picture
+        this.picture = picture;
+
+        // set the x location
         this.x = x;
+
+        // set the y location
         this.y = y;
+
     }
-    public int getX()
-    {
-        return x;
-    }
-    public int getY()
-    {
-        return y;
-    }
-    public int getRow()
-    {
-        return y;
-    }
-    public int getCol()
-    {
-        return x;
-    }
+
+    ///////////////////////// methods //////////////////////////////
+
+    /**
+     * Method to get the x location of this pixel.
+     * @return the x location of the pixel in the picture
+     */
+    public int getX() { return x; }
+
+    /**
+     * Method to get the y location of this pixel.
+     * @return the y location of the pixel in the picture
+     */
+    public int getY() { return y; }
+
+    /**
+     * Method to get the row (y value)
+     * @return the row (y value) of the pixel in the picture
+     */
+    public int getRow() { return y; }
+
+    /**
+     * Method to get the column (x value)
+     * @return the column (x value) of the pixel
+     */
+    public int getCol() { return x; }
+
+    /**
+     * Method to get the amount of alpha (transparency) at this pixel.
+     * It will be from 0-255.
+     * @return the amount of alpha (transparency)
+     */
     public int getAlpha() {
 
         /* get the value at the location from the picture as a 32 bit int
          * with alpha, red, green, blue each taking 8 bits from left to right
          */
-        int value = map.getBasicPixel(x,y);
+        int value = picture.getBasicPixel(x,y);
 
         // get the alpha value (starts at 25 so shift right 24)
         // then and it with all 1's for the first 8 bits to keep
@@ -42,6 +93,7 @@ public class Pixel {
 
         return alpha;
     }
+
 
     /**
      * Method to get the amount of red at this pixel.  It will be
@@ -54,7 +106,7 @@ public class Pixel {
         /* get the value at the location from the picture as a 32 bit int
          * with alpha, red, green, blue each taking 8 bits from left to right
          */
-        int value = map.getBasicPixel(x,y);
+        int value = picture.getBasicPixel(x,y);
 
         // get the red value (starts at 17 so shift right 16)
         // then AND it with all 1's for the first 8 bits to
@@ -86,7 +138,7 @@ public class Pixel {
         /* get the value at the location from the picture as a 32 bit int
          * with alpha, red, green, blue each taking 8 bits from left to right
          */
-        int value = map.getBasicPixel(x,y);
+        int value = picture.getBasicPixel(x,y);
 
         // get the green value (starts at 9 so shift right 8)
         int green = (value >>  8) & 0xff;
@@ -116,7 +168,7 @@ public class Pixel {
         /* get the value at the location from the picture as a 32 bit int
          * with alpha, red, green, blue each taking 8 bits from left to right
          */
-        int value = map.getBasicPixel(x,y);
+        int value = picture.getBasicPixel(x,y);
 
         // get the blue value (starts at 0 so no shift required)
         int blue = value & 0xff;
@@ -144,7 +196,7 @@ public class Pixel {
         /* get the value at the location from the picture as a 32 bit int
          * with alpha, red, green, blue each taking 8 bits from left to right
          */
-        int value = map.getBasicPixel(x,y);
+        int value = picture.getBasicPixel(x,y);
 
         // get the red value (starts at 17 so shift right 16)
         // then AND it with all 1's for the first 8 bits to
@@ -189,11 +241,12 @@ public class Pixel {
         int value = (alpha << 24) + (red << 16) + (green << 8) + blue;
 
         // update the picture with the int value
-        map.setBasicPixel(x,y,value);
+        picture.setBasicPixel(x,y,value);
     }
 
     /**
      * Method to correct a color value to be within 0 to 255
+     * @param the value to use
      * @return a value within 0 to 255
      */
     private static int correctValue(int value)
@@ -235,7 +288,7 @@ public class Pixel {
      * Method to set the blue to a new blue value
      * @param value the new value to use
      */
-    private void setBlue(int value)
+    public void setBlue(int value)
     {
         // set the blue value to the corrected value
         int blue = correctValue(value);
@@ -298,6 +351,19 @@ public class Pixel {
     {
         double average = (getRed() + getGreen() + getBlue()) / 3.0;
         return average;
+    }
+
+    /**
+     * Method to return a string with information about this pixel
+     * @return a string with information about this pixel
+     */
+    public String toString()
+    {
+        return "Pixel row=" + getRow() +
+                " col=" + getCol() +
+                " red=" + getRed() +
+                " green=" + getGreen() +
+                " blue=" + getBlue();
     }
 
 }
