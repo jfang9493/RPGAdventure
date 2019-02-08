@@ -6,18 +6,11 @@ public class Items {
 
 
 
-    public Items(String n, String y){
+    public Items(String n, String y) {
         name = n;
         type = y;
-
-    private String effect;
-
-    public Items(String n, String y, String e){
-        name = n;
-        type = y;
-        effect = e;
-
     }
+
 
     public Items(){}
 
@@ -30,14 +23,9 @@ public class Items {
     }
 
 
-    public String toString()
-    {
-        return("Item Name: "+name
-                +"\n"
-                + "Item Type:"+type);
-
-    public String getEffect(){
-        return effect;
-
+    public String toString() {
+        return ("Item Name: " + name
+                + "\n"
+                + "Item Type:" + type);
     }
 }
