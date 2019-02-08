@@ -300,7 +300,6 @@ public class SimplePicture implements DigitalPicture
         else
             pictureFrame = new PictureFrame(this);
     }
-
     /**
      * Method to hide the picture display
      */
@@ -325,13 +324,6 @@ public class SimplePicture implements DigitalPicture
     /**
      * Method to open a picture explorer on a copy (in memory) of this
      * simple picture
-     */
-    public void explore()
-    {
-        // create a copy of the current picture and explore it
-        new PictureExplorer(new SimplePicture(this));
-    }
-
     /**
      * Method to force the picture to repaint itself.  This is very
      * useful after you have changed the pixels in a picture and
@@ -368,18 +360,6 @@ public class SimplePicture implements DigitalPicture
             title = fileName;
 
         File file = new File(this.fileName);
-
-        if (!file.canRead())
-        {
-            // try adding the media path
-            file = new File(FileChooser.getMediaPath(this.fileName));
-            if (!file.canRead())
-            {
-                throw new IOException(this.fileName +
-                        " could not be opened. Check that you specified the path");
-            }
-        }
-
         bufferedImage = ImageIO.read(file);
     }
 
