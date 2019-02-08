@@ -8,37 +8,43 @@ public class Defense extends Items {
             "Something Armor",//Drop Rate:20%          Defense: 60
             "Ultimate Mystical Shiny Armor"};//Drop Rate:1% Defense 125
 
-    int DefItem;
-
-    public Defense(String name, String type, int effect) {
-        super(name, type);
-        DefItem = effect;
+    int effectDef;
+    String DefName;
+    public Defense(String type, int effect, String name) {
+        super(type);
+        effectDef = effect;
+        DefName = name;
     }
 
     public void setDefense() {
         int prob1 = (int) (Math.random() * 100) + 1;
         if (prob1 == 1) {
-            DefItem = 125;
+            effectDef = 125;
+            DefName= "Ultimate Mystical Shiny Armor";
         }
         prob1 = (int) (Math.random() * 10) + 1;
         if (prob1 == 1 || prob1 == 2) {
-            DefItem = 60;
+            effectDef = 60;
+            DefName="Something Armor";
         }
         prob1 = (int) (Math.random() * 2) + 1;
         if (prob1 == 1) {
-            DefItem = 40;
+            effectDef = 40;
+            DefName="Knights Vow";
         }
         prob1 = (int) (Math.random() * 10) + 1;
         if (prob1 != 1 && prob1 != 2) {
-            DefItem = 25;
+            effectDef = 25;
+            DefName="Adequate Armor"
         }
-        DefItem = 0;
+        effectDef = 0;
+        DefName="Raggity Woodplank";
     }
 
     @Override
     public String toString() {
         return (super.toString() +
-                "\nItem Effect: " + DefItem);
+                "\nItem Effect: " + effectDef);
 
     }
 }
@@ -67,4 +73,4 @@ public class Defense extends Items {
         return 0;
     }
     */
-}
+
