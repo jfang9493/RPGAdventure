@@ -6,7 +6,10 @@ public class Weapons extends Items {
             "Knights Blade",//Drop Rate:75%    Set Dmg:75
             "BFF Sword",//Drop Rate:30%        Set Dmg:100
             "B.O.R.K"};//Drop Rate:1%          Set Dmg:300
+    public int giveAttack()
+
     public int giveAttack(String name)
+
     {
         int prob1= (int)(Math.random()*100)+1;
         System.out.println(prob1);
