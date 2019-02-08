@@ -5,7 +5,7 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 
-public class Map {
+public class Map extends SimplePicture {
     private DigitalPicture map;
     private int x;
     private int y;
@@ -16,9 +16,22 @@ public class Map {
         this.x =x;
         this.y= y;
     }
+    public Map(String fileName)
+    {
+        super(fileName);
+
+    }
+    public Map(Map copyMap)
+    {
+        super(copyMap);
+    }
+    public Map(BufferedImage image)
+    {
+        super(image);
+    }
     public int getPixelValue()
     {
-        return
+        return getBasicPixel()
     }
     public void determineMap()
     {
@@ -37,5 +50,20 @@ public class Map {
         boolean isYellow = false;
         boolean isRed = false;
         if()
+    }
+    public int[][] generateArray()
+    {
+        Pixel[][] pixels = this.getPixels2D();
+        for (int i = 0; i< pixels.length;i++)
+        {
+            for(int j =0; j<pixels[i].length;j++)
+            {
+                pixels[i][j] =
+            }
+        }
+    }
+    public static void main(String[] args)
+    {
+        Map start = new Map()
     }
 }
