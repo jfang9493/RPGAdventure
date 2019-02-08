@@ -8,8 +8,6 @@ public class Health extends Items {
             "Rainbow Health Drop"};//Drop Rate:1% Max health: +50 Health Recovery:50
 
     public int giveHealth() {
-
-
         int prob1 = (int)(Math.random()*100)+1;
         if(prob1==1)
         {
@@ -30,8 +28,6 @@ public class Health extends Items {
         {
             return 10;
         }
-
-
         return 0;
     }
 }
