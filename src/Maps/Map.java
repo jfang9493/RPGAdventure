@@ -10,11 +10,21 @@ public class Map extends SimplePicture {
     private int x;
     private int y;
     private BufferedImage bufferedImage;
-    public Map(DigitalPicture map, int x, int y)
+    public Map()
     {
+        super();
+    }
+    public Pixel(DigitalPicture map, int x, int y)
+    {
+        // set the picture
         this.map = map;
-        this.x =x;
-        this.y= y;
+
+        // set the x location
+        this.x = x;
+
+        // set the y location
+        this.y = y;
+
     }
     public Map(String fileName)
     {
@@ -29,9 +39,36 @@ public class Map extends SimplePicture {
     {
         super(image);
     }
-    public int getPixelValue()
+    public int getRed() {
+        int value = map.getBasicPixel(x,y);
+        int red = (value >> 16) & 0xff;
+        return red;
+    }
+    public static int getRed(int value)
     {
-        return getBasicPixel()
+        int red = (value >> 16) & 0xff;
+        return red;
+    }
+    public int getGreen() {
+        int value = map.getBasicPixel(x,y);
+        int green = (value >>  8) & 0xff;
+
+        return green;
+    }
+    public static int getGreen(int value)
+    {
+        int green = (value >> 8) & 0xff;
+        return green;
+    }
+    public int getBlue() {
+        int value = map.getBasicPixel(x,y);
+        int blue = value & 0xff;
+        return blue;
+    }
+    public static int getBlue(int value)
+    {
+        int blue = value & 0xff;
+        return blue;
     }
     public void determineMap()
     {
@@ -48,20 +85,69 @@ public class Map extends SimplePicture {
     {
         boolean isBlack = false;
         boolean isYellow = false;
-        boolean isRed = false;
-        if()
-    }
-    public int[][] generateArray()
-    {
-        Pixel[][] pixels = this.getPixels2D();
-        for (int i = 0; i< pixels.length;i++)
+        boolean isGrey = false;
+        boolean isMonster = false;
+        int[][] newArray = new int[bufferedImage.getHeight()][bufferedImage.getWidth()];
+        int[][] red = new int[bufferedImage.getHeight()][bufferedImage.getWidth()];
+        int[][] green = new int[bufferedImage.getHeight()][bufferedImage.getWidth()];
+        int[][] blue  = new int[bufferedImage.getHeight()][bufferedImage.getWidth()];
+        for(int i =0; i< newArray.length;i++)
         {
-            for(int j =0; j<pixels[i].length;j++)
+            for(int j = i;j<newArray[i].length;j++)
             {
-                pixels[i][j] =
+                blue[i][j] = getBlue();
+                green[i][j] = getGreen();
+                red[i][j] = getRed();
+                newArray[i][j] = (blue[i][j] + green[i][j] + red[i][j]);
+            }
+        }
+        for(int i =0; i< newArray.length;i++)
+        {
+            for(int j = i; j< newArray[i].length;j++)
+            {
+                if(newArray[i][j] == 384)
+                {
+                    isGrey = true;
+                }
+                else if(newArray[i][j]==510)
+                {
+                    isYellow = true;
+                }
+                else if(newArray[i][j]==0)
+                {
+                    isBlack = true;
+                }
+                else
+                {
+                    isMonster = true;
+                }
             }
         }
     }
+    public void copy(Picture fromPic,
+                     int startRow, int startCol)
+    {
+        Pixel fromPixel = null;
+        Pixel toPixel = null;
+        Pixel[][] toPixels = this.getPixels2D();
+        Pixel[][] fromPixels = fromPic.getPixels2D();
+        for (int fromRow = 0, toRow = startRow;
+             fromRow < fromPixels.length &&
+                     toRow < toPixels.length;
+             fromRow++, toRow++)
+        {
+            for (int fromCol = 0, toCol = startCol;
+                 fromCol < fromPixels[0].length &&
+                         toCol < toPixels[0].length;
+                 fromCol++, toCol++)
+            {
+                fromPixel = fromPixels[fromRow][fromCol];
+                toPixel = toPixels[toRow][toCol];
+                toPixel.setColor(fromPixel.getColor());
+            }
+        }
+    }
+
     public static void main(String[] args)
     {
         Map start = new Map()
