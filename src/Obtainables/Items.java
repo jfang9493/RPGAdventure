@@ -6,9 +6,9 @@ public class Items {
 
 
 
-    public Items( String y) {
-
+    public Items(String y) {
         type = y;
+
     }
 
 
@@ -24,4 +24,6 @@ public class Items {
     public String toString() {
         return ("Item Type:" + type);
     }
+
+
 }

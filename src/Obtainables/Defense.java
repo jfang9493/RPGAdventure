@@ -8,9 +8,9 @@ public class Defense extends Items {
             "Something Armor",//Drop Rate:20%          Defense: 60
             "Ultimate Mystical Shiny Armor"};//Drop Rate:1% Defense 125
 
-    int effectDef;
-    String DefName;
-    public Defense(String type, int effect, String name) {
+    private int effectDef;
+    private String DefName;
+    public Defense(String type,String name, int effect) {
         super(type);
         effectDef = effect;
         DefName = name;
@@ -35,7 +35,7 @@ public class Defense extends Items {
         prob1 = (int) (Math.random() * 10) + 1;
         if (prob1 != 1 && prob1 != 2) {
             effectDef = 25;
-            DefName="Adequate Armor"
+            DefName="Adequate Armor";
         }
         effectDef = 0;
         DefName="Raggity Woodplank";
