@@ -70,17 +70,7 @@ public class Map extends SimplePicture {
         int blue = value & 0xff;
         return blue;
     }
-    public void generateMap()
-    {
-        BufferedImage img = null;
-        try
-        {
-            img  = ImageIO.read(new File("startingroom.png"));
-        }
-        catch (IOException e)
-        {
-        }
-    }
+
     /*
      * determineifWalkable creates a 2d array where the values of each pixel are stored, then returns a string to see if the spot is walkable.
      */

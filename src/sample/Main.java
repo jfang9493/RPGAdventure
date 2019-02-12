@@ -6,6 +6,11 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+import javax.imageio.ImageIO;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+
 public class Main extends Application {
 
     @Override
@@ -17,8 +22,22 @@ public class Main extends Application {
     }
 
 
-    public static void main(String[] args) {
+    public static void main(String[] args)
+    {
+        boolean startGame = false;
         launch(args);
+
         HighScores.CSVUtilities();
+        public void generateMap()
+        {
+            BufferedImage img = null;
+            try
+            {
+                img  = ImageIO.read(new File("startingroom.png"));
+            }
+            catch (IOException e)
+            {
+            }
+        }
     }
 }
