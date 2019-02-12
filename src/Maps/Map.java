@@ -180,6 +180,5 @@ public class Map extends SimplePicture {
         else {
             currentMap = 12;
         }
-
     }
 }
