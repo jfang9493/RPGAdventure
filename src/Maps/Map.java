@@ -59,7 +59,7 @@ public class Map extends SimplePicture {
     {
         int green = (value >> 8) & 0xff;
         return green;
-    }a
+    }
     public int getBlue() {
         int value = map.getBasicPixel(x,y);
         int blue = value & 0xff;
