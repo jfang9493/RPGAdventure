@@ -148,37 +148,8 @@ public class Map extends SimplePicture {
         }
         return true;
     }
-    public void changeRoom()
+    public void changeRoom(int x, int y)
     {
-        if(currentMap == 0){
-            currentMap = 2;
-        }
-        else if(currentMap == 1){
-        }
-        else if(currentMap == 2){
-        }
-        else if(currentMap == 3){
-        }
-        else if(currentMap == 4){
-        }
-        else if(currentMap == 5){
-        }
-        else if(currentMap == 6){
-        }
-        else if(currentMap == 7){
-        }
-        else if(currentMap == 8){
-        }
-        else if(currentMap == 9){
-        }
-        else if(currentMap == 10){
-        }
-        else if(currentMap == 11){
-        }
-        else if(currentMap == 12){
-        }
-        else {
-            currentMap = 12;
-        }
+
     }
 }
