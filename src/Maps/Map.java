@@ -135,29 +135,27 @@ public class Map extends SimplePicture {
     }
     public boolean isWalkable()
     {
-        boolean walkable = false;
         boolean isDoor = false;
         boolean isMonster = false;
         if(determineifWalkable().equals("grey"))
         {
-            walkable = true;
+            return true;
         }
         if(determineifWalkable().equals("yellow"))
         {
-            walkable = true;
             isDoor = true;
+            return true;
         }
         if(determineifWalkable().equals("black"))
         {
-            walkable = false;
-            isDoor = true;
+            return false;
         }
         if(determineifWalkable().equals("monster"))
         {
-            walkable = true;
             isMonster = true;
+            return true;
         }
-
+        return true;
     }
     public void copy(Picture fromPic, int startRow, int startCol)
     {
