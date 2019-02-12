@@ -1,5 +1,5 @@
 package Obtainables;
-
+//d
 public class Mysticals extends Items {
     String[] giveMysticals = {
             "SmolFire",//What the player is starts with   Cost: 10 Mana Dmg:10

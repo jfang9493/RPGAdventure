@@ -28,13 +28,7 @@ public class Pixel
 
     ////////////////////// constructors /////////////////////////////////
 
-    /**
-     * A constructor that takes the x and y location for the pixel and
-     * the picture the pixel is coming from
-     * @param picture the picture that the pixel is in
-     * @param x the x location of the pixel in the picture
-     * @param y the y location of the pixel in the picture
-     */
+
     public Pixel(DigitalPicture picture, int x, int y)
     {
         // set the picture

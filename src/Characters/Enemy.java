@@ -11,4 +11,5 @@ public class Enemy extends Person {
         this.drop = drop;
     }
 
+
 }

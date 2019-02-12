@@ -28,7 +28,8 @@ public class Defense extends Items {
             DefName="Something Armor";
         }
         prob1 = (int) (Math.random() * 2) + 1;
-        if (prob1 == 1) {
+        if (prob1 == 1)
+        {
             effectDef = 40;
             DefName="Knights Vow";
         }
