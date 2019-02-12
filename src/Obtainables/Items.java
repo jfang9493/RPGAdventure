@@ -2,28 +2,27 @@ package Obtainables;
 
 public class Items {
 
+    private String name;
     private String type;
+    private int effect;
 
-
-
-    public Items(String y) {
-        type = y;
-
+    public Items(String y, String n, int e){
+        name = y;
+        type = n;
+        effect = e;
     }
-
 
     public Items(){}
 
-
+    public String getName(){
+        return name;
+    }
 
     public String getType(){
         return type;
     }
 
-
-    public String toString() {
-        return ("Item Type:" + type);
+    public int getEffect(){
+        return effect;
     }
-
-
 }

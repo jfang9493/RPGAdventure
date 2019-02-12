@@ -10,46 +10,40 @@ public class Health extends Items {
 
     private int effectHealth;
     private String healthName;
-    public Health(String type, String name, int effect){
-        super(type);
-        effectHealth=effect;
-        healthName=name;
-    }
-    public void giveHealth() {
-        int prob1 = (int)(Math.random()*100)+1;
-        if(prob1==1)
-        {
-            effectHealth= 50;
-            healthName="Rainbow Health Drop";
-        }
-        prob1 = (int)(Math.random()*10)+1;
-        if(prob1==1 || prob1==2 || prob1==3)
-        {
-            effectHealth= 30;
-            healthName="Mom's Chicken Soup";
-        }
-        prob1 = (int)(Math.random()*2)+1;
-        if(prob1==1)
-        {
-            effectHealth= 20;
-            healthName="Health Pot";
-        }
-        prob1=(int)(Math.random()*4)+1;
-        if(prob1==1 || prob1==2 || prob1==3)
-        {
-            effectHealth= 10;
-            healthName="Band-Aid";
-        }
-        effectHealth= 0;
-        healthName="Mpthomg";
-    }
-    @Override
-    public String toString() {
-        return (super.toString() +
-                "\nItem Name: "+ healthName+
-                "\nItem Effect: " + effectHealth);
+    private String typeH;
 
+    public Health(String type, String name, int effect) {
+        super(type, name, effect);
+        typeH = "Health";
+        effectHealth = effect;
+        healthName = name;
     }
+
+    public void giveHealth() {
+        int prob1 = (int) (Math.random() * 100) + 1;
+        if (prob1 == 1) {
+            effectHealth = 50;
+            healthName = "Rainbow Health Drop";
+        }
+        prob1 = (int) (Math.random() * 10) + 1;
+        if (prob1 == 1 || prob1 == 2 || prob1 == 3) {
+            effectHealth = 30;
+            healthName = "Mom's Chicken Soup";
+        }
+        prob1 = (int) (Math.random() * 2) + 1;
+        if (prob1 == 1) {
+            effectHealth = 20;
+            healthName = "Health Pot";
+        }
+        prob1 = (int) (Math.random() * 4) + 1;
+        if (prob1 == 1 || prob1 == 2 || prob1 == 3) {
+            effectHealth = 10;
+            healthName = "Band-Aid";
+        }
+        effectHealth = 0;
+        healthName = "Mpthomg";
+    }
+}
     /*
     public int giveHealth() {
         int prob1 = (int)(Math.random()*100)+1;
@@ -75,4 +69,4 @@ public class Health extends Items {
         return 0;
     }
     */
-}
+

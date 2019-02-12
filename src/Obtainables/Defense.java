@@ -11,7 +11,7 @@ public class Defense extends Items {
     private int effectDef;
     private String DefName;
     public Defense(String type,String name, int effect) {
-        super(type);
+        super(type,name,effect);
         effectDef = effect;
         DefName = name;
     }
@@ -40,37 +40,4 @@ public class Defense extends Items {
         effectDef = 0;
         DefName="Raggity Woodplank";
     }
-
-    @Override
-    public String toString() {
-        return (super.toString() +
-                "\nItem Effect: " + effectDef);
-
-    }
 }
-    /*
-    public int giveDefense() {
-        int prob1 = (int)(Math.random()*100)+1;
-        if(prob1==1)
-        {
-            return 125;
-        }
-        prob1 = (int)(Math.random()*10)+1;
-        if(prob1==1||prob1==2)
-        {
-            return 60;
-        }
-        prob1 = (int)(Math.random()*2)+1;
-        if(prob1==1)
-        {
-            return 40;
-        }
-        prob1= (int)(Math.random()*10)+1;
-        if(prob1!=1 && prob1!=2)
-        {
-            return 25;
-        }
-        return 0;
-    }
-    */
-
