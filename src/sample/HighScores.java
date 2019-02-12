@@ -30,8 +30,8 @@ public class HighScores {
             e.printStackTrace();
         }
 
-        System.out.println(names);
-        System.out.println(scores);
+        //System.out.println(names);
+        //System.out.println(scores);
 
     }
 
