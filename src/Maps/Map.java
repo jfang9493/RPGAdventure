@@ -14,7 +14,7 @@ public class Map extends SimplePicture {
     {
         super();
     }
-    public Pixel(DigitalPicture map, int x, int y)
+    public Map(DigitalPicture map, int x, int y)
     {
         // set the picture
         this.map = map;
@@ -87,6 +87,7 @@ public class Map extends SimplePicture {
         boolean isYellow = false;
         boolean isGrey = false;
         boolean isMonster = false;
+        boolean tileChecker = false;
         int[][] newArray = new int[bufferedImage.getHeight()][bufferedImage.getWidth()];
         int[][] red = new int[bufferedImage.getHeight()][bufferedImage.getWidth()];
         int[][] green = new int[bufferedImage.getHeight()][bufferedImage.getWidth()];
@@ -108,24 +109,28 @@ public class Map extends SimplePicture {
                 if(newArray[i][j] == 384)
                 {
                     isGrey = true;
+                    tileChecker = isGrey;
                 }
                 else if(newArray[i][j]==510)
                 {
                     isYellow = true;
+                    tileChecker = isYellow;
                 }
                 else if(newArray[i][j]==0)
                 {
                     isBlack = true;
+                    tileChecker = ;
                 }
                 else
                 {
                     isMonster = true;
+                    tileChecker = isMonster;
                 }
             }
         }
+        return tileChecker;
     }
-    public void copy(Picture fromPic,
-                     int startRow, int startCol)
+    public void copy(Picture fromPic, int startRow, int startCol)
     {
         Pixel fromPixel = null;
         Pixel toPixel = null;
@@ -146,10 +151,5 @@ public class Map extends SimplePicture {
                 toPixel.setColor(fromPixel.getColor());
             }
         }
-    }
-
-    public static void main(String[] args)
-    {
-        Map start = new Map()
     }
 }
