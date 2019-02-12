@@ -24,20 +24,25 @@ public class Main extends Application {
 
     public static void main(String[] args)
     {
-        boolean startGame = false;
+        boolean endGame = false;
+        boolean start = true;
         launch(args);
-
-        HighScores.CSVUtilities();
-        public void generateMap()
+        while(start)
         {
-            BufferedImage img = null;
-            try
+            int currentMap = 0;
+            HighScores.CSVUtilities();
+            public void generateMap()
             {
-                img  = ImageIO.read(new File("startingroom.png"));
-            }
-            catch (IOException e)
-            {
+                BufferedImage img = null;
+                try
+                {
+                    img  = ImageIO.read(new File("startingroom.png"));
+                }
+                catch (IOException e)
+                {
+                }
             }
         }
+
     }
 }

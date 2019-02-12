@@ -147,5 +147,8 @@ public class Map extends SimplePicture {
         }
         return true;
     }
-    public void
+    public void changeRoom()
+    {
+
+    }
 }
