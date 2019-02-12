@@ -9,6 +9,7 @@ public class Map extends SimplePicture {
     private DigitalPicture map;
     private int x;
     private int y;
+    int currentMap = 0;
     private BufferedImage bufferedImage;
     public Map()
     {
@@ -149,6 +150,36 @@ public class Map extends SimplePicture {
     }
     public void changeRoom()
     {
+        if(currentMap == 0){
+            currentMap = 2;
+        }
+        else if(currentMap == 1){
+        }
+        else if(currentMap == 2){
+        }
+        else if(currentMap == 3){
+        }
+        else if(currentMap == 4){
+        }
+        else if(currentMap == 5){
+        }
+        else if(currentMap == 6){
+        }
+        else if(currentMap == 7){
+        }
+        else if(currentMap == 8){
+        }
+        else if(currentMap == 9){
+        }
+        else if(currentMap == 10){
+        }
+        else if(currentMap == 11){
+        }
+        else if(currentMap == 12){
+        }
+        else {
+            currentMap = 12;
+        }
 
     }
 }

@@ -31,18 +31,19 @@ public class Main extends Application {
         {
             int currentMap = 0;
             HighScores.CSVUtilities();
-            public void generateMap()
-            {
-                BufferedImage img = null;
-                try
-                {
-                    img  = ImageIO.read(new File("startingroom.png"));
-                }
-                catch (IOException e)
-                {
-                }
-            }
+
         }
 
+    }
+    public void generateMap()
+    {
+        BufferedImage img = null;
+        try
+        {
+            img  = ImageIO.read(new File("startingroom.png"));
+        }
+        catch (IOException e)
+        {
+        }
     }
 }
