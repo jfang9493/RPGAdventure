@@ -81,13 +81,16 @@ public class Map extends SimplePicture {
         {
         }
     }
-    public boolean ifWalkable()
+    /*
+     * determineifWalkable creates a 2d array where the values of each pixel are stored, then returns a string to see if the spot is walkable.
+     */
+    public String determineifWalkable()
     {
-        boolean isBlack = false;
-        boolean isYellow = false;
-        boolean isGrey = false;
-        boolean isMonster = false;
-        boolean tileChecker = false;
+        String isBlack = null;
+        String isYellow = null;
+        String isGrey = null;
+        String isMonster = null;
+        String tileChecker = null;
         int[][] newArray = new int[bufferedImage.getHeight()][bufferedImage.getWidth()];
         int[][] red = new int[bufferedImage.getHeight()][bufferedImage.getWidth()];
         int[][] green = new int[bufferedImage.getHeight()][bufferedImage.getWidth()];
@@ -108,27 +111,32 @@ public class Map extends SimplePicture {
             {
                 if(newArray[i][j] == 384)
                 {
-                    isGrey = true;
+                    isGrey = "grey";
                     tileChecker = isGrey;
                 }
                 else if(newArray[i][j]==510)
                 {
-                    isYellow = true;
+                    isYellow = "yellow";
                     tileChecker = isYellow;
                 }
                 else if(newArray[i][j]==0)
                 {
-                    isBlack = true;
-                    tileChecker = ;
+                    isBlack = "black";
+                    tileChecker = isBlack;
                 }
                 else
                 {
-                    isMonster = true;
+                    isMonster = "monster";
                     tileChecker = isMonster;
                 }
             }
         }
         return tileChecker;
+    }
+    public boolean isWalkable()
+    {
+        boolean walkable = false;
+        while()
     }
     public void copy(Picture fromPic, int startRow, int startCol)
     {
