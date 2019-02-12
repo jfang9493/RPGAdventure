@@ -70,7 +70,7 @@ public class Map extends SimplePicture {
         int blue = value & 0xff;
         return blue;
     }
-    public void determineMap()
+    public void generateMap()
     {
         BufferedImage img = null;
         try
@@ -157,4 +157,5 @@ public class Map extends SimplePicture {
         }
         return true;
     }
+    public void
 }

@@ -217,17 +217,4 @@ public class Picture extends SimplePicture
             }
         }
     }
-
-
-    /* Main method for testing - each class in Java can have a main
-     * method
-     */
-    public static void main(String[] args)
-    {
-        Picture beach = new Picture("beach.jpg");
-        beach.explore();
-        beach.zeroBlue();
-        beach.explore();
-    }
-
 }
