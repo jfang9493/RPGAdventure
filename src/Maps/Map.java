@@ -136,7 +136,28 @@ public class Map extends SimplePicture {
     public boolean isWalkable()
     {
         boolean walkable = false;
-        while()
+        boolean isDoor = false;
+        boolean isMonster = false;
+        if(determineifWalkable().equals("grey"))
+        {
+            walkable = true;
+        }
+        if(determineifWalkable().equals("yellow"))
+        {
+            walkable = true;
+            isDoor = true;
+        }
+        if(determineifWalkable().equals("black"))
+        {
+            walkable = false;
+            isDoor = true;
+        }
+        if(determineifWalkable().equals("monster"))
+        {
+            walkable = true;
+            isMonster = true;
+        }
+
     }
     public void copy(Picture fromPic, int startRow, int startCol)
     {
