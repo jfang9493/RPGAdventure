@@ -1,5 +1,5 @@
 package Obtainables;
-//d
+//TBinplayercLaSs
 public class Mysticals extends Items {
     String[] giveMysticals = {
             "SmolFire",//What the player is starts with   Cost: 10 Mana Dmg:10
@@ -7,7 +7,7 @@ public class Mysticals extends Items {
             "Napalm",//Drop Rate:10%                      Cost: 50 Mana Dmg:50
             "SuperNova"}; //Drop Rate:1%                  Cost: 75 Mana Dmg:100
 
-    //Acc.. To Brandon, Player already has the spells so probably no drop rate
+
 
     public int mpDmg(String name) {
         if(name.equalsIgnoreCase("SmolFire"))

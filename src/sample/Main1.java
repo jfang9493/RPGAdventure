@@ -10,7 +10,7 @@ import javafx.stage.Stage;
 
 import java.util.ArrayList;
 
-public class test extends Application {
+public class Main1 extends Application {
     /**
      * @param args the command line arguments
      */
@@ -23,7 +23,7 @@ public class test extends Application {
         primaryStage.setTitle("The RPG Game");
 
         StackPane sp = new StackPane();
-        Image img = new Image("Maps/startingroom.png");
+        Image img = new Image("Maps/map0.png");
         ImageView imgView = new ImageView(img);
         sp.getChildren().add(imgView);
 
