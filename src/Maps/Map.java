@@ -75,7 +75,7 @@ public class Map extends SimplePicture {
         BufferedImage img = null;
         try
         {
-            img  = ImageIO.read(new File("bigboxx.png"));
+            img  = ImageIO.read(new File("startingroom.png"));
         }
         catch (IOException e)
         {
@@ -156,27 +156,5 @@ public class Map extends SimplePicture {
             return true;
         }
         return true;
-    }
-    public void copy(Picture fromPic, int startRow, int startCol)
-    {
-        Pixel fromPixel = null;
-        Pixel toPixel = null;
-        Pixel[][] toPixels = this.getPixels2D();
-        Pixel[][] fromPixels = fromPic.getPixels2D();
-        for (int fromRow = 0, toRow = startRow;
-             fromRow < fromPixels.length &&
-                     toRow < toPixels.length;
-             fromRow++, toRow++)
-        {
-            for (int fromCol = 0, toCol = startCol;
-                 fromCol < fromPixels[0].length &&
-                         toCol < toPixels[0].length;
-                 fromCol++, toCol++)
-            {
-                fromPixel = fromPixels[fromRow][fromCol];
-                toPixel = toPixels[toRow][toCol];
-                toPixel.setColor(fromPixel.getColor());
-            }
-        }
     }
 }
