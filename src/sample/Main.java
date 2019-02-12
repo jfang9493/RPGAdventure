@@ -40,7 +40,7 @@ public class Main extends Application {
         BufferedImage img = null;
         try
         {
-            img  = ImageIO.read(new File("startingroom.png"));
+            img  = ImageIO.read(new File("map0.png"));
         }
         catch (IOException e)
         {
