@@ -73,7 +73,8 @@ public class Map extends SimplePicture {
     }
 
     /*
-     * determineifWalkable creates a 2d array where the values of each pixel are stored, then returns a string to see if the spot is walkable.
+     * determineifWalkable creates a 2d array where the values of each pixel are stored,
+     * then returns a string to see if the spot is walkable.
      */
     public String determineifWalkable()
     {
