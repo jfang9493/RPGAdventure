@@ -1,7 +1,7 @@
 package Characters;
-
 import Obtainables.Items;
-
+import Obtainables.Weapons;
+import Obtainables.Defense;
 public class Enemy extends Person {
 
     private Items drop;
